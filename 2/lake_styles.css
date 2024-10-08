@@ -1,0 +1,164 @@
+﻿@charset "utf-8" ;
+
+/*
+   New Perspectives on HTML5 and CSS3, 7th Edition
+   Tutorial 2
+   Case Problem 4
+
+   The Great Lakescape Lodge Layout Styles
+   Filename: lake_layout.css
+*/
+
+/* Load Custom Font */
+@font-face {
+    font-family: 'CAC Champagne';
+    src: url('../fonts/cac_champagne.woff') format('woff');
+}
+
+/* Structural Styles */
+
+body {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1020px;
+    min-width: 640px;
+    background-color: #f5f5dc; /* Main background color set to light brown */
+    color: white; /* Text color */
+}
+
+body > header {
+    border-top: 5px solid thistle; /* Top border color */
+}
+
+body > header > img {
+    width: 100%;
+    display: block;
+    margin: 0;
+}
+
+body > section {
+    position: relative; /* Ensure relative positioning for children */
+}
+
+body > section#leftcol {
+    width: 65%; /* Adjusted width for left column */
+    float: left;
+    margin-left: 0%;
+    margin-right: 0%; /* Remove margin to align with right column */
+    background-color: black; /* Background color for left column */
+    color: white; /* Text color for left column */
+    position: relative; /* Ensure correct positioning for pseudo-element */
+    min-height: 100vh; /* Ensure minimum height covers the viewport */
+}
+
+body > section#rightcol {
+    width: 35%; /* Adjusted width to ensure it aligns with the right border */
+    float: left;
+    margin-right: 0%; /* Remove margin to align with left column */
+    border-right: 5px solid darkviolet; /* Right border color */
+    background-color: darkviolet; /* Right column background color */
+    color: white; /* Text color in the right column */
+    position: relative; /* Ensure correct positioning for pseudo-element */
+    min-height: 100vh; /* Ensure minimum height covers the viewport */
+}
+
+/* Extend the background of the right column */
+body > section#rightcol::after {
+    content: ""; /* Create an empty content for the pseudo-element */
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: darkviolet; /* Same background color as the right column */
+    z-index: -1; /* Place it behind the content */
+}
+
+footer {
+    clear: both;
+    color: white; /* Footer text color */
+    background-color: #3e2723; /* Deep brown background color */
+}
+
+address, article, aside, blockquote, body, cite,
+div, dl, dt, dd, em, figcaption, figure, footer,
+h1, h2, h3, h4, h5, h6, header, html, img,
+li, main, nav, ol, p, section, span, ul {
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* Header Navigation */
+
+header > nav {
+    display: table;
+    width: 100%;
+}
+
+header > nav > ul {
+    display: table-row;
+    list-style-type: none;
+}
+
+header > nav > ul > li {
+    display: table-cell;
+    text-align: center;
+}
+
+header > nav a {
+    display: block;
+    width: 100%;
+    color: white; /* Link color */
+}
+
+/* Section Layout */
+
+section#leftcol aside {
+    width: 42%;
+    float: left;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    margin-bottom: 20px;
+    color: white; /* Text color within aside */
+}
+
+section#leftcol aside:nth-of-type(1) {
+    background-color: orange; /* Background color for Notes */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+section#leftcol aside:nth-of-type(2) {
+    background-color: yellow; /* Background color for Upcoming Events */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+section#leftcol img {
+    width: 100%;
+    display: block;
+}
+
+blockquote {
+    color: white; /* Blockquote text color */
+}
+
+/* Apply Custom Font */
+.welcome, .the-lodge, .information, .door-county {
+    font-family: 'CAC Champagne', sans-serif;
+}
+.welcome {
+    font-family: 'CAC Champagne', sans-serif;
+    font-size: 3em; /* Adjust this value as needed */
+}
+
+/* Additional Styles */
+
+/* Header Textbox */
+header > nav {
+    background-color: thistle; /* Background color for header navigation */
+    padding: 10px 0;
+}

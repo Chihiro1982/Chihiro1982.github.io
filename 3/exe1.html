@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数字猜谜游戏</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        #game { max-width: 400px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; }
+        input[type="text"] { width: 100%; padding: 8px; margin-bottom: 10px; }
+        button { padding: 10px 15px; font-size: 16px; }
+        .message { margin-top: 10px; font-weight: bold; }
+    </style>
+</head>
+<body>
+<div id="game">
+    <h1>数字猜谜游戏</h1>
+    <p>猜一个1到100之间的数字，您有10次机会！</p>
+    <input type="text" id="guessInput" placeholder="输入你的猜测" />
+    <button onclick="makeGuess()">猜测</button>
+    <div id="message" class="message"></div>
+    <div id="guesses"></div>
+    <button id="restartButton" style="display: none;" onclick="startGame()">重新开始游戏</button>
+</div>
+
+<script>
+    let secretNumber;
+    let guesses = [];
+    let attempts = 0;
+    const maxAttempts = 10;
+
+    function startGame() {
+        secretNumber = Math.floor(Math.random() * 100) + 1;
+        guesses = [];
+        attempts = 0;
+        document.getElementById('message').textContent = '';
+        document.getElementById('guesses').textContent = '';
+        document.getElementById('restartButton').style.display = 'none';
+        document.getElementById('guessInput').value = '';
+    }
+
+    function makeGuess() {
+        const guessInput = document.getElementById('guessInput');
+        const guess = Number(guessInput.value);
+
+        if (isNaN(guess) || guess < 1 || guess > 100) {
+            document.getElementById('message').textContent = '请输入一个1到100之间的数字。';
+            return;
+        }
+
+        if (guesses.includes(guess)) {
+            document.getElementById('message').textContent = '您已经猜过这个数字。';
+            return;
+        }
+
+        guesses.push(guess);
+        attempts++;
+
+        if (guess === secretNumber) {
+            document.getElementById('message').textContent = `恭喜你！猜对了，数字是 ${secretNumber}。`;
+            document.getElementById('restartButton').style.display = 'block';
+            return;
+        }
+
+        if (attempts >= maxAttempts) {
+            document.getElementById('message').textContent = `游戏结束！你没有猜对数字。正确的数字是 ${secretNumber}。`;
+            document.getElementById('restartButton').style.display = 'block';
+            return;
+        }
+
+        let hint = guess < secretNumber ? '太低了' : '太高了';
+        document.getElementById('message').textContent = `猜错了，数字 ${hint}。`;
+        document.getElementById('guesses').textContent = `你已经猜过的数字: ${guesses.join(', ')}`;
+    }
+
+    // 初始化游戏
+    startGame();
+</script>
+</body>
+</html>
