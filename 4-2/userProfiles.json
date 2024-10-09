@@ -1,0 +1,56 @@
+[
+  {
+    "firstName": "张",
+    "lastName": "伟",
+    "email": "zhang.wei@example.com",
+    "dateOfBirth": "1990-05-14",
+    "address": {
+      "street": "长安街123号",
+      "city": "北京",
+      "state": "北京",
+      "zipCode": "100000"
+    },
+    "preferences": {
+      "theme": "dark",
+      "language": "zh",
+      "notifications": true,
+      "subscription": true
+    }
+  },
+  {
+    "firstName": "李",
+    "lastName": "芳",
+    "email": "li.fang@example.com",
+    "dateOfBirth": "1985-11-23",
+    "address": {
+      "street": "南京路456号",
+      "city": "上海",
+      "state": "上海",
+      "zipCode": "200000"
+    },
+    "preferences": {
+      "theme": "light",
+      "language": "zh",
+      "notifications": false,
+      "subscription": false
+    }
+  },
+  {
+    "firstName": "王",
+    "lastName": "强",
+    "email": "wang.qiang@example.com",
+    "dateOfBirth": "1992-07-19",
+    "address": {
+      "street": "解放路789号",
+      "city": "广州",
+      "state": "广东",
+      "zipCode": "510000"
+    },
+    "preferences": {
+      "theme": "dark",
+      "language": "en",
+      "notifications": true,
+      "subscription": true
+    }
+  }
+]
